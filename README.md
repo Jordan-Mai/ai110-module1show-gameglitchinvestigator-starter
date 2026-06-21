@@ -26,18 +26,30 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+Number guessing game that allows the user to attempt to guess numbers with multiple difficulty settings and earn points for every correct guess.
+
 - [ ] Detail which bugs you found.
+logic_utils.py had NotImplementedError stubs, so tests could not pass.
+app.py used wrong hint logic: "Too High" returned "Go HIGHER!" and vice versa.
+The secret number reset incorrectly on submit and new game due to session state handling.
+The UI range text always showed 1 to 100 instead of the current difficulty range.
+The New Game button reset secret range incorrectly to 1-100 instead of difficulty-specific bounds.
+
 - [ ] Explain what fixes you applied.
+Found and fixed the following issues:
+Go Higher and Go Lower logic was fixed.
+Resets secret number correctly.
+Showed proper difficulty range for each difficulty.
+Changed bounds to proper difficulty-based bounds.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Difficulties now set proper alotted attempts and number range.
+2. Hints now accurately describe given positioning.
+3. UI range text now shows proper difficulty range.
+4. Reset button now properly resets secret number.
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
@@ -46,7 +58,15 @@ Describe your fixed game in numbered steps so a reader can follow along without 
 ```
 # Paste your pytest output here, e.g.:
 # pytest tests/
-# ========================= X passed in 0.XXs =========================
+========================================================================== test session starts ==========================================================================
+platform win32 -- Python 3.14.4, pytest-9.1.0, pluggy-1.6.0
+rootdir: C:\Users\mylev\OneDrive\Desktop\Game Glitch Investigator
+plugins: anyio-4.14.0
+collected 3 items                                                                                                                                                        
+
+ai110-module1show-gameglitchinvestigator-starter\tests\test_game_logic.py ...                                                                                      [100%]
+
+=========================================================================== 3 passed in 0.09s ===========================================================================
 ```
 
 ## 🚀 Stretch Features
